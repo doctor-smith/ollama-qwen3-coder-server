@@ -27,8 +27,8 @@ You can replace `proxy` with any existing Traefik network in your environment.
 Create a `.env` file based on the example:
 
 ```shell script
-HOST_URL=ai.solyton.org
-USERS=ai:$$2y$05$$dZatn9eOmD7Hw1XJCBPfFOQ7k3FxMX/J3Pq7Rb4z6g6DCMljXKHmi
+HOST_URL=example.com
+USERS=user1:pw-hash1,user2:pw-hash2
 ```
 
 
