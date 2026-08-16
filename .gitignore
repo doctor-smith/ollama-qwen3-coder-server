@@ -1,0 +1,77 @@
+
+# .env file (contains sensitive information)
+.env
+
+# IDE specific files
+.idea/
+*.iml
+*.iws
+
+# Docker related
+docker-compose.override.yml
+.dockerenv
+.container
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Local configuration
+local/
+config/local/
+
+# Ollama data directory
+data/
+
+# Environment specific files
+.env.local
+.env.*.local
+
+# OS generated files
+*~
+*.swp
+*.swo
+*.swn
+
+# Editor backup files
+*.backup
+*.bak
+*.old
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+build/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+*.sln.lock

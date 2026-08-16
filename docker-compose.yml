@@ -1,0 +1,39 @@
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+
+    volumes:
+      - ./data:/root/.ollama
+
+    networks:
+      - proxy
+
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      - HOST_URL=${HOST_URL}
+      - USERS=${USERS}
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+
+      # Router
+      - "traefik.http.routers.ollama.rule=Host(`${HOST_URL}`)"
+      - "traefik.http.routers.ollama.entrypoints=websecure"
+      - "traefik.http.routers.ollama.tls=true"
+      - "traefik.http.routers.ollama.tls.certresolver=ollama-le"
+
+      # Auth
+      - "traefik.http.routers.ollama.middlewares=ollama-auth"
+
+      - "traefik.http.middlewares.ollama-auth.basicauth.users=${USERS}"
+
+      # Service
+      - "traefik.http.services.ollama.loadbalancer.server.port=11434"
+
+networks:
+  proxy:
+    external: true
