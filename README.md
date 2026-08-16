@@ -74,11 +74,14 @@ docker-compose ps
 
 ### 2. Test Ollama API
 
+Execute the following command. You need to replace `https://your-server-url` by your own server URL and provide the right credentials
+
 ```shell script
-curl -X POST http://localhost:11434/api/generate \
+curl -X POST https://your-server-url/api/generate \
   -H "Content-Type: application/json" \
+  -u user1:pass1 \
   -d '{
-    "model": "qwen3-coder",
+    "model": "qwen3-coder-8k",
     "prompt": "Hello, how are you?",
     "stream": false
   }'
@@ -88,7 +91,7 @@ curl -X POST http://localhost:11434/api/generate \
 ### 3. Verify Model Loading
 
 ```shell script
-curl http://localhost:11434/api/tags
+curl -u user1:pass https://your-server-url/api/tags
 ```
 
 
