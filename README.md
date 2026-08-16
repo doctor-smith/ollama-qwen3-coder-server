@@ -50,6 +50,18 @@ PARAMETER num_ctx 8192
 PARAMETER temperature 0.2
 ```
 
+Now, you need to create the 8k model  
+```shell
+docker exec ollama ollama create qwen3-coder-8k -f /tmp/Modelfile
+
+```
+
+and then run it
+
+```shell
+docker exec ollama ollama run qwen3-coder-8k:latest
+```
+
 
 ## Testing the Installation
 
